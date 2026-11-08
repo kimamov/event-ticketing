@@ -14,7 +14,7 @@ How to write agent requests: [docs/AGENTIC.md](docs/AGENTIC.md). Decisions: `doc
 - Bun (exact version pinned in `packageManager`; Bun has no LTS line) workspaces monorepo: `apps/api`, `apps/web`, `apps/worker`, `packages/shared`
 - API: Bun runtime, Hono, Zod (validation + shared types), Postgres 16, Kysely (SQL-first, no heavy ORM), Redis.
   Bun's built-in `SQL` and `RedisClient` are used for now; Kysely dialect choice is an M1 decision
-- Web: Next.js (App Router, runs on Node) + TanStack Query, Playwright for e2e
+- Web: Next.js (App Router) on the Bun runtime (`bun --bun next ...`) + TanStack Query, Playwright for e2e
 - Tests: `bun test`; integration tests run against real Postgres/Redis (Testcontainers or docker compose), not mocks
 - Infra: docker compose locally, GitHub Actions CI, OpenTelemetry, k6 for load tests
 

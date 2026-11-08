@@ -21,10 +21,7 @@ jobs:
         with: { bun-version-file: package.json }
       - run: bun install --frozen-lockfile
       - run: bun run typecheck
-      # Next.js runs on Node, not Bun: pin the LTS instead of the runner's preinstalled version.
-      - uses: actions/setup-node@v5
-        with: { node-version: 24 }
-      - run: bun run --filter @et/web build
+      - run: bun run --filter @et/web build # runs Next.js on Bun via `bun --bun`
 
   test:
     runs-on: ubuntu-latest
